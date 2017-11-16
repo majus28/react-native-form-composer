@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Animated, Dimensions, View, Easing, Keyboard } from 'react-native';
 import styles from './styles';
-
+import PropTypes from 'prop-types';
 class Panel extends Component {
 
   static propTypes = {
-    children: React.PropTypes.object,
+    children: PropTypes.object,
   }
 
   constructor(props) {

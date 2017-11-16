@@ -36,7 +36,7 @@
 ## Installation
 
 ```bash
-$ npm i react-native-form-builder --save
+$ npm i react-native-form-composer --save
 ```
 
 ## Basic Usage
@@ -59,7 +59,7 @@ Example: Login Form consisting of three fields (username, password, country)
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 import { View, Text, Button } from 'native-base';
-import GenerateForm from 'react-native-form-builder';
+import GenerateForm from 'react-native-form-composer';
 
 const styles = {
   wrapper: {
