@@ -8,7 +8,7 @@
 - Handle all keyboard related problems smartly
 - Supports custom validations & nested forms
 - Uses <a href="https://github.com/GeekyAnts/NativeBase">Nativebase</a> components
--inspired from <a href="https://github.com/bietkul/react-native-form-builder"> creator </a>
+- inspired from <a href="https://github.com/bietkul/react-native-form-builder"> creator </a>
 ## Getting Started
 
 - [Installation](#installation)
