@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Dimensions } from 'react-native';
+import PropTypes from 'prop-types';
+
 import {
   View,
   Text,
