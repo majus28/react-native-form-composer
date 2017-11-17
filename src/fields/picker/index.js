@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text } from 'native-base';
-import { Platform, Picker, TouchableOpacity } from 'react-native';
+import { Platform, View } from "react-native";
+import { Container, Header, Title, Content, Grid, Col,  Button, Icon, Text, Right, Body, Left, Picker, Form, Item as FormItem, ListItem } from "native-base";
 import Panel from '../../components/panel';
 import styles from './../../styles';
 import PropTypes from 'prop-types';
@@ -21,83 +21,31 @@ export default class PickerField extends Component {
     const { theme, attributes, ErrorComponent } = this.props;
     const isValueValid = attributes.options.indexOf(attributes.value) > -1;
     const pickerValue = attributes.options.indexOf(attributes.value).toString();
-    if (Platform.OS !== 'ios') {
-      return (
-        <View
-          style={Object.assign(styles.pickerMainAndroid, {
-            // backgroundColor: theme.pickerBgColor,
-            // borderBottomColor: theme.inputBorderColor,
-            // borderBottomWidth: theme.borderWidth,
-          })}
-        >
-          <View style={{ flex: 0.3 }}>
-            <Text style={{ color: theme.inputColorPlaceholder, textAlign:'right', marginRight:10 }}>{attributes.label}</Text>
-          </View>
-          <View style={{ flex: 0.7 }}>
-            <Picker
-              style={{ padding: 2 }}
-              textStyle={{ color: theme.pickerColorSelected }}
-              iosHeader="Select one"
-              mode={attributes.mode}
-              selectedValue={pickerValue}
-              onValueChange={value => this.handleChange(value)}
-            >{
-                attributes.options.map((item, index) => (
-                  <Item key={index} label={item} value={`${index}`} />
-                ))
+    return(
+      <ListItem>
+        <View style={{flex:0.3}}>
+            <Text style={{ color: theme.inputColorPlaceholder,  fontSize:14}} >{attributes.label}</Text>
+      </View>
+      <Left>
+      <View style={{flex:0.7}}>
+        <Form>
+          <Picker
+          style={{height:30 }}
+            mode={attributes.mode}
+            iosHeader={attributes.label}
+            selectedValue={pickerValue}
+            onValueChange={value => this.handleChange(value)}
+            >
+            {attributes.options.map((item, index) => (
+                    <Item  label={item} value={`${index}`} />
+                    ))
               }
-            </Picker>
-          </View>
-          <ErrorComponent {...{ attributes, theme }} />
-        </View>
+          </Picker>
+        </Form>
+      <ErrorComponent {...{ attributes, theme }} />
+      </View>
+      </Left>
+    </ListItem>
       );
     }
-    return (
-      <View
-        style={Object.assign(styles.pickerMainIOS, {
-          // backgroundColor: theme.pickerBgColor,
-          // borderBottomColor: theme.inputBorderColor,
-          // borderBottomWidth: theme.borderWidth,
-        })}
-      >
-        <TouchableOpacity
-          onPress={() => this.panel.toggle()}
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            paddingVertical: 10,
-          }}
-        >
-          <Text style={{ color: theme.inputColorPlaceholder, flex: 0.3 }}>
-            {attributes.label}
-          </Text>
-          {/* <Text style={{ color: theme.inputColorPlaceholder }}>
-            {isValueValid ? attributes.value : 'None'}
-          </Text> */}
-        </TouchableOpacity>
-        <ErrorComponent {...{ attributes, theme }} />
-        <View style={{ flex: 0.7 }}>
-          <Panel
-            ref={(c) => { this.panel = c; }}
-          >
-            <Picker
-              style={{ padding: 2 }}
-              textStyle={{ color: theme.pickerColorSelected }}
-              mode={attributes.mode}
-              selectedValue={pickerValue}
-              onValueChange={value => this.handleChange(value)}
-            >{
-                attributes.options.map((item, index) => (
-                  <Item key={index} label={item} value={`${index}`} />
-                  ))
-              }
-            </Picker>
-          </Panel>
-        </View>
-      </View>
-
-    );
-  }
 }

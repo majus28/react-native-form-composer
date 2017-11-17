@@ -96,7 +96,7 @@ export default class DatePickerField extends Component {
                 justifyContent: 'space-between',
               }}
             >
-              <Text style={{ color: theme.labelActiveColor, flex:0.3, textAlign:'right', marginRight:10 }}>{attributes.label}</Text>
+              <Text style={{ color:"#00e57e", flex:0.3, fontSize:14, marginLeft:4}}>{attributes.label}</Text>
               <View
                 style={{
                   flexDirection: 'row',
@@ -110,7 +110,7 @@ export default class DatePickerField extends Component {
                 : true) &&
                 <View
                   style={{
-                    marginHorizontal: 5,
+                    marginHorizontal: -18,
                   }}
                 >
                   <Text>
@@ -164,7 +164,7 @@ export default class DatePickerField extends Component {
               justifyContent: 'space-between',
             }}
           >
-            <Text style={{ color: theme.labelActiveColor, flex:0.3, textAlign:'right', marginRight:10 }}>{attributes.label}</Text>
+            <Text style={{ color: theme.labelActiveColor, flex:0.3, fontSize:14 }}>{attributes.label}</Text>
             <View
               style={{
                 flexDirection: 'row',
@@ -176,10 +176,9 @@ export default class DatePickerField extends Component {
                   || attributes.mode === 'datetime')
                 &&
                 <TouchableOpacity
-                  hitSlop={{ top: 10, bottom: 10, right: 50, left: 50 }}
-                  style={{
-                    marginHorizontal: 5,
-                  }}
+                style={{
+                   marginHorizontal: -18,
+                }}
                 >
                   <Text onPress={this.showDatePicker}>
                     { (value && I18n.strftime(value, '%d %b %Y')) || 'Date' }

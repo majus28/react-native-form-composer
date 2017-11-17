@@ -23,10 +23,10 @@ export default class TextInputField extends Component {
     return (
       <ListItem style={{ borderBottomWidth: 0, paddingVertical: 5 }}>
        <View style={styles.label }>
-            <Label style={{textAlign:'right', marginRight:10}}>{attributes.label}</Label>
+            <Label style={{textAlign:'right', marginRight:18, fontSize:14}}>{attributes.label}</Label>
        </View>
-        <View style={styles.input}>
-          <View>
+        <View style={{flex:1}}>
+          <View style={styles.input}>
             <Item  error={theme.changeTextInputColorOnError ? attributes.error : null}>
               { attributes.icon &&
               <Icon color={theme.textInputIconColor} name={attributes.icon} />
@@ -35,6 +35,7 @@ export default class TextInputField extends Component {
                 style={{
                   height: 30,
                   padding: 0,
+                  fontSize:14
                 }}
                 ref={(c) => { this.textInput = c; }}
                 underlineColorAndroid="transparent"
