@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Item, Input, Icon, ListItem, Text } from 'native-base';
+import { View, Item, Input, Icon, ListItem, Text, Label } from 'native-base';
 import { Platform } from 'react-native';
 import { getKeyboardType } from '../../utils/methods';
 import PropTypes from 'prop-types';
+import styles from './styles';
 
 export default class TextInputField extends Component {
   static propTypes = {
@@ -21,15 +22,18 @@ export default class TextInputField extends Component {
     const keyboardType = getKeyboardType(attributes.type);
     return (
       <ListItem style={{ borderBottomWidth: 0, paddingVertical: 5 }}>
-        <View style={{ flex: 1 }}>
+       <View style={styles.label }>
+            <Label style={{textAlign:'right', marginRight:10}}>{attributes.label}</Label>
+       </View>
+        <View style={styles.input}>
           <View>
-            <Item error={theme.changeTextInputColorOnError ? attributes.error : null}>
+            <Item  error={theme.changeTextInputColorOnError ? attributes.error : null}>
               { attributes.icon &&
               <Icon color={theme.textInputIconColor} name={attributes.icon} />
                 }
               <Input
                 style={{
-                  height: inputProps && inputProps.multiline && (Platform.OS === 'ios' ? undefined : null),
+                  height: 30,
                   padding: 0,
                 }}
                 ref={(c) => { this.textInput = c; }}

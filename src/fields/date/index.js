@@ -96,10 +96,11 @@ export default class DatePickerField extends Component {
                 justifyContent: 'space-between',
               }}
             >
-              <Text style={{ color: theme.labelActiveColor }}>{attributes.label}</Text>
+              <Text style={{ color: theme.labelActiveColor, flex:0.3, textAlign:'right', marginRight:10 }}>{attributes.label}</Text>
               <View
                 style={{
                   flexDirection: 'row',
+                  flex:0.7
                 }}
               >
                 {
@@ -163,10 +164,11 @@ export default class DatePickerField extends Component {
               justifyContent: 'space-between',
             }}
           >
-            <Text style={{ color: theme.labelActiveColor }}>{attributes.label}</Text>
+            <Text style={{ color: theme.labelActiveColor, flex:0.3, textAlign:'right', marginRight:10 }}>{attributes.label}</Text>
             <View
               style={{
                 flexDirection: 'row',
+                flex:0.7
               }}
             >
               {

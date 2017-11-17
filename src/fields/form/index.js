@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'native-base';
+import { View, Text, Card, CardItem, Body, ListItem, List } from 'native-base';
 import GenerateForm from '../../formBuilder';
 import PropTypes from 'prop-types';
 
@@ -37,21 +37,25 @@ export default class FormField extends Component {
     } = this.props;
     return (
       <View>
-        <View style={{ paddingHorizontal: 15, paddingVertical: 5 }}>
-          <Text style={{ fontWeight: '500', fontSize: 17 }}>{attributes.label}</Text>
-        </View>
-        <View style={{ paddingHorizontal: 10 }}>
-          <GenerateForm
-            ref={(c) => { this.group = c; }}
-            onValueChange={this.onValueChange}
-            autoValidation={autoValidation}
-            customValidation={customValidation}
-            customComponents={customComponents}
-            showErrors
-            fields={attributes.fields}
-            theme={theme}
-          />
-        </View>
+        <List>
+          <ListItem itemDivider>
+            <Text style={{ fontWeight: '500', fontSize: 17 }}>{attributes.label}</Text>
+          </ListItem>                    
+        </List>
+        <Card>
+          <CardItem>
+            <GenerateForm
+                ref={(c) => { this.group = c; }}
+                onValueChange={this.onValueChange}
+                autoValidation={autoValidation}
+                customValidation={customValidation}
+                customComponents={customComponents}
+                showErrors
+                fields={attributes.fields}
+                theme={theme}
+              />
+          </CardItem>
+        </Card>
       </View>
     );
   }

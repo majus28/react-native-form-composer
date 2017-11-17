@@ -30,10 +30,10 @@ export default class PickerField extends Component {
             // borderBottomWidth: theme.borderWidth,
           })}
         >
-          <View style={{ flex: 7 }}>
-            <Text style={{ color: theme.inputColorPlaceholder }}>{attributes.label}</Text>
+          <View style={{ flex: 0.3 }}>
+            <Text style={{ color: theme.inputColorPlaceholder, textAlign:'right', marginRight:10 }}>{attributes.label}</Text>
           </View>
-          <View style={{ flex: 3 }}>
+          <View style={{ flex: 0.7 }}>
             <Picker
               style={{ padding: 2 }}
               textStyle={{ color: theme.pickerColorSelected }}
@@ -70,15 +70,15 @@ export default class PickerField extends Component {
             paddingVertical: 10,
           }}
         >
-          <Text style={{ color: theme.inputColorPlaceholder }}>
+          <Text style={{ color: theme.inputColorPlaceholder, flex: 0.3 }}>
             {attributes.label}
           </Text>
-          <Text style={{ color: theme.inputColorPlaceholder }}>
+          {/* <Text style={{ color: theme.inputColorPlaceholder }}>
             {isValueValid ? attributes.value : 'None'}
-          </Text>
+          </Text> */}
         </TouchableOpacity>
         <ErrorComponent {...{ attributes, theme }} />
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 0.7 }}>
           <Panel
             ref={(c) => { this.panel = c; }}
           >
