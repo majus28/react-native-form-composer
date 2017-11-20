@@ -92,8 +92,33 @@ const fields = [
     name: 'country',
     mode: 'dialog',
     label: 'Select Country',
-    defaultValue: 'INDIA',
-    options: ['US', 'INDIA', 'UK', 'CHINA', 'FRANCE'],
+    defaultValue: 'SL',
+    options: [
+        {
+          name: 'SL',
+          value: 'Sl'
+        },
+        {
+          name: 'INDIA',
+          value: 'INDIA'
+        },
+        {
+          name: 'UK',
+          value: 'UK'
+        },
+        {
+          name: 'CHINA',
+          value: 'CHINA'
+        },
+        {
+          name: 'FRANCE',
+          value: 'FRANCE'
+        },
+        {
+          name: 'US',
+          value: 'US'
+        },
+    ],
   },
 ];
 export default class FormGenerator extends Component {
@@ -214,19 +239,44 @@ number
 
 ### Picker
 `type: picker`
-Uses native picker
+Uses native base picker
 
 #### Extra Properties
 | Props  | Default | Type | Description |
 | :------------ |:--------------- |:---------------| :-----|
-| options (required) | N/A | `array` | An array of strings to define available options for e.g. ['CAR', 'BIKE', 'BICYCLE'] |
+| options (required) | N/A | `array` | An array of strings to define available options for e.g. [  {name: 'SL', value: 'Sl'}, { name: 'INDIA', value:'INDIA' }, { name: 'UK',  value: 'UK' }, {  name: 'CHINA',  value: 'CHINA' }, {  name: 'FRANCE', value: 'FRANCE' }, {name: 'US', value: 'US' },] |
 | props | N/A | `object` | Here you can define extra props which are applicable of react native Picker Component for e.g. { mode: 'dropdown', .... }
 
 #### Value Type : `String`
 
 #### Default Value Type :
 You can set default value as a string which must be present in available options.
-For e.g If options are ['CAR', 'BIKE', 'BICYCLE'] then you can define `defaultValue = 'BIKE'`
+For e.g If options are [  {
+          name: 'SL',
+          value: 'Sl'
+        },
+        {
+          name: 'INDIA',
+          value: 'INDIA'
+        },
+        {
+          name: 'UK',
+          value: 'UK'
+        },
+        {
+          name: 'CHINA',
+          value: 'CHINA'
+        },
+        {
+          name: 'FRANCE',
+          value: 'FRANCE'
+        },
+        {
+          name: 'US',
+          value: 'US'
+        },] 
+        
+      then you can define `defaultValue = 'US'`
 
 ### Switch
 `(type: switch)`
