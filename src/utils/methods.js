@@ -57,10 +57,13 @@ export function getDefaultValue(field) {
     case 'url':
       return field.defaultValue || '';
     case 'picker': {
-      if ((field.options).indexOf(field.defaultValue) !== -1) {
-        return field.defaultValue;
-      }
-      return field.options[0];
+      Returnvalue = field.options[0].value;
+      field.options.map(function(fieldValue){
+        if(fieldValue.value == field.defaultValue){
+          Returnvalue =  field.defaultValue;
+        }
+      })
+      return Returnvalue;
     }
     case 'select': {
       if (Array.isArray(field.defaultValue)) {
@@ -116,7 +119,7 @@ export function getResetValue(field) {
     case 'url':
       return '';
     case 'picker':
-      return field.options[0];
+      return field.options[0].value;
     case 'select':
       return field.multiple ? [] : null;
     case 'switch':

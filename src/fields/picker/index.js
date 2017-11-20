@@ -15,12 +15,17 @@ export default class PickerField extends Component {
   }
   handleChange(value) {
     const attributes = this.props.attributes;
-    this.props.updateValue(attributes.name, attributes.options[value]);
+    const props = this.props;
+    attributes.options.map(function(index){
+      if(Object.values(index).indexOf(value) !== -1){
+        props.updateValue(attributes.name, index.value);
+      }
+    })
   }
   render() {
     const { theme, attributes, ErrorComponent } = this.props;
     const isValueValid = attributes.options.indexOf(attributes.value) > -1;
-    const pickerValue = attributes.options.indexOf(attributes.value).toString();
+    const pickerValue = attributes.value;
     return(
       <ListItem>
         <View style={{flex:0.3}}>
@@ -37,9 +42,9 @@ export default class PickerField extends Component {
             onValueChange={value => this.handleChange(value)}
             >
             {attributes.options.map((item, index) => (
-                    <Item  label={item} value={`${index}`} />
-                    ))
-              }
+                  <Item  label={item.name} value={item.value} />
+                  ))
+            }
           </Picker>
         </Form>
       <ErrorComponent {...{ attributes, theme }} />
